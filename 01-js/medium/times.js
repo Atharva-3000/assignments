@@ -7,7 +7,25 @@ Try running it for
 Hint - use Date class exposed in JS
 There is no automated test for this one, this is more for you to understand time goes up as computation goes up
 */
-
 function calculateTime(n) {
-    return 0.01;
+    let start = new Date().getTime();
+    let sum = 0;
+
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+
+    let end = new Date().getTime(); // Capture the end time in milliseconds
+
+    // Calculate the time difference in seconds
+    let elapsedTimeInSeconds = (end - start);
+
+    return elapsedTimeInSeconds;
 }
+
+// Example usage:
+const result1 = calculateTime(100);
+console.log(`Time taken for sum from 1 to 100: ${result1} milliseconds`);
+
+const result2 = calculateTime(100000);
+console.log(`Time taken for sum from 1 to 100000: ${result2} milliseconds`);
