@@ -5,19 +5,37 @@
  */
 
 function wait1(t) {
-
+    return new Promise(function(resolve){
+        setTimeout(resolve, t);
+    })
 }
 
 function wait2(t) {
-
+    return new Promise(function(resolve){
+        setTimeout(resolve, t);
+    })
 }
 
 function wait3(t) {
-
+    return new Promise(function(resolve){
+        setTimeout(resolve, t);
+    })
 }
 
 function calculateTime(t1, t2, t3) {
+    const startTime = Date.now();
 
+    // Creating the promises but not awaiting them yet
+    const promise1 = wait1(t1*1000);
+    const promise2 = wait2(t2*1000);
+    const promise3 = wait3(t3*1000);
+
+    // Returning a promise that resolves when all three promises are resolved
+    return Promise.all([promise1, promise2, promise3])
+        .then(() => {
+            const endTime = Date.now();
+            return endTime - startTime;
+        });
 }
 
 module.exports = calculateTime;
