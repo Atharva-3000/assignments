@@ -12,7 +12,9 @@ export function Assignment2() {
 
     }
     // Your code ends here
-
+    const showAlert=useCallback(()=>{
+        alert(inputText);
+    },[inputText]);
     return (
         <div>
             <input
